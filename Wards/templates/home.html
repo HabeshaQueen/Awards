@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ block.super}}
+{% load bootstrap4%}
+<div class="container">
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-8">
+      <div class="cards">
+        <hr>
+        {% if user.is_authenticated %}
+        Hello <strong>{{user}}</strong>, take a look at today's top trending sites
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+        <hr>
+        <br>
+        <br>
+        {% for new in index_path %}
+        <a data-fancybox href="{{new.view.url}}" data-caption="<p>{{new.name}}</p> <p>{{new.description}}</p> <button type='button' class='btn btn-primary'name='button' >view_site</button>">
+          <img src=" {{new.view.url}}" alt="image" />
+        </a>
+
+        <!-- <div class="middle">
+          <a href="/view_site">View page</a>
+          <p>{{new.image_description}}</p>
+        </div> -->
+        <br>
+        <br>
+        <br>
+        <br>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
