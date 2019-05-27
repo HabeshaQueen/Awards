@@ -14,7 +14,7 @@
   <form method='post' action='{% url 'profile'%}'>
     {% csrf_token %}
     {{ form|crispy }}
-    <input type="hidden" id="wati" name="user_id" value="{{user.id}}">
+    <input type="hidden" id="chuu" name="user_id" value="{{user.id}}">
     <input type="submit" name='Submit' value="Submit">
   </form>
 </body>
