@@ -1,5 +1,6 @@
 
 {% load static %}
+{% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -16,14 +17,16 @@
       <div class="row">
         <div class="col-md-12">
           <div class="move">
-            <form class="" method="post">
-              {% csrf_token %}
-              
-              <button type="submit" name="button">Sign Up</button>
-              <div class="cards">
-                <h6>Allready have an account? <a href="/accounts/login">LOGIN</a> </h6>
-              </div>
-            </form>
+              <form  action="/accounts/register/" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+                </div>
+    
+                <input type="hidden" name="next" value="{{next}}">
+    
+              </form>
           </div>
         </div>
       </div>
