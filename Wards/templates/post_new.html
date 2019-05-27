@@ -1,4 +1,4 @@
-{% load crispy_forms_tags %}
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -11,10 +11,7 @@
   <body>
     <form method='POST' enctype="multipart/form-data">
     {% csrf_token %}
-    {%for fields in form%}
     {{ fields }}
-    <!-- {{ form|crispy }} -->
-    {%endfor%}
     <button type="submit" name="button">upload</button>
   </form>
 

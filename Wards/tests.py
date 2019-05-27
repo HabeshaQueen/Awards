@@ -7,7 +7,7 @@ class ProjectTestClass(TestCase):
 
     def setUp(self):
 
-        self.new_user = User(username = "chukula", email = "adhoadhigal@gmail.com",password = "28965755")
+        self.new_user = User(username = "chukula", email = "adhoadhigal@gmail.com",password = "chukula13")
         self.new_user.save()
         self.new_project = Project(image_view = 'chukula.jpeg', image_description = 'asdfghjkl;;;;;')
         self.new_project.save()
