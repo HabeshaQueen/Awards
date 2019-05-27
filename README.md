@@ -1,54 +1,54 @@
-AWWARDS
+## AWARDS
 This is Project review site built in python that allows users to view, review and share their favorite application projects.
 
-Author name
-David Watibini Makhanu
+## Author name
+Adho Galgallo
 
-Live link
+## Live link
 Use this link to see the web-page
 
-(https://watibini.github.io/awward/)
 
-API Links
-use the following API links to get access to the apps JSON files using the endpoints stated after each link;
 
-http endpoint Profile
+## API Links
+* use the following API links to get access to the apps JSON files using the endpoints stated after each link;
 
-http endpoint Project
+* http endpoint Profile
 
-Project Description
+* http endpoint Project
+
+## Project Description
 This application allows users to review, vote and share computer application projects.
 
-Technologies Used
-Python 3.6
+## Technologies Used
+* Python 3.6
 
-Django 1.11
+* Django 1.11
 
-Application requirements
-Ensure you have Python3.6 installed in your computer. you can download it by running this command.
-$ sudo apt-get update sudo apt-get install python3.6.
+## Application requirements
+* Ensure you have Python3.6 installed in your computer. you can download it by running this command.
+`$ sudo apt-get update sudo apt-get install python3.6.`
 
-Ensure you have PiP installed in your computer, you can download it by running this command:
-$ python get-pip.py
+* Ensure you have PiP installed in your computer, you can download it by running this command:
+`$ python get-pip.py`
 
-set up a virtual environment using the following command;
-$ python3.6 -m venv --without-pip virtual
+* set up a virtual environment using the following command;
+`$ python3.6 -m venv --without-pip virtual`
 
-Run the following command to install all your dependencies in your local computer;
-$ pip install -r requirements.txt
+* Run the following command to install all your dependencies in your local computer;
+`$ pip install -r requirements.txt`
 
-Project setup instruction/ installations
-From the repository, click + in the global sidebar and select Clone this repository .
+* Project setup instruction/ installations
+* From the repository, click + in the global sidebar and select Clone this repository .
 
-Copy the clone command.
+* Copy the clone command.
 
-From a terminal window, change to the local directory where you want to clone your repository.
+* From a terminal window, change to the local directory where you want to clone your repository.
 
 or just use this
 
-$ git clone https://github.com/watibini/awward.git
+`$ git clone `
 
-Run this command to open the app
+* Run this command to open the app
 $ python3.6 manage.py runserver
 
 BDD
@@ -59,13 +59,11 @@ user clicks on make review	User is redirected to a page where he/she can make a 
 User clicks on the profile icon	Profile details of the current user is loaded
 User clicks on edit profile	Profile forms are displayed
 user searches for a project category	user is re-directed to the searched term with relevant projects displayed
-TDD
--To test the app, run this commands in the terminal.
 
-$ python3.6 manage.py test.py main
 
-Contact Information
-Email-(adhoadhigal@gmail.com)
+## Contact Information
+   * Email-(adhoadhigal@gmail.com)
+   * Phone No. (0748393309)
 
 ## License
 MIT License
