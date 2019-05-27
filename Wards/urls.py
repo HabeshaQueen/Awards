@@ -11,6 +11,8 @@ urlpatterns = [
     url(r'update/',views.update, name='update'),
     url(r'^search/', views.search_project, name='search_results'),
     url(r'^new/project$', views.new_project, name='new-project'),
+    url(r'^review/(?P<pk>\d+)',views.add_review,name='review'),
+    url(r'^all/(?P<pk>\d+)', views.all, name='all'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

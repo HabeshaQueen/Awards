@@ -3,39 +3,70 @@
 {{ block.super}}
 {% load bootstrap4%}
 <div class="container">
-  <div class="row">
-    <div class="col-md-1">
-    </div>
-    <div class="col-md-8">
-      <div class="cards">
-        <hr>
-        {% if user.is_authenticated %}
-        Hello <strong>{{user}}</strong>, take a look at today's top trending sites
-        {% else %}
-        <a href="accounts/login">Login</a>
-        {% endif %}
-        <hr>
-        <br>
-        <br>
+    <div class="row">
         {% for new in index_path %}
-        <a data-fancybox href="{{new.view.url}}" data-caption=>
-            <p>{{new.name}}</p> <p>{{new.description}}</p> <button type='button' class='btn btn-primary'name='button' > view_site</button>"
-            
-          <img src=" {{new.view.url}}" alt="image" />
-        </a>
 
-        <div class="middle">
-          <a href="/view_site">View page</a>
-          <p>{{new.image_description}}</p>
-        </div> -->
-        <br>
-        <br>
-        <br>
-        <br>
+        <div class="col-md-4 main-page d-flex" style=" margin-top: 5px;">
+            <div class="card card-cascade wider flex-fill ">
+
+                <!-- Card image -->
+                <div class="view view-cascade overlay">
+                <img class="card-img-top"
+                            src="{{new.view.url}}" alt="{{image.title}}">
+                </div>
+                <!--Card content-->
+                <div class="card-body">
+
+                    <!--Title-->
+                    <h4 class="card-title">{{new.name}}</h4>
+                    <!--Text-->
+                    <p class="card-text">{{new.description}}</p>
+                    <p><a href="{{new.link}}">View Site</a></p>                    
+                    
+
+                </div>
+            </div>
+        </div>
+
+        {% empty %}
+        <div class="row">
+            <h1 class="text-center"> No Images Yet</h1>
+        </div>
         {% endfor %}
-      </div>
+        <div class="review-section">
+            {% for review in reviews %}
+            {% if project.id == review.project.id %}
+ 
+            <p><strong>{{review.juror}}</strong> {{review.comment}} [usability: {{review.usability}}, content: {{review.content}} , design: {{review.design}}]</p>
+            <p>{{ project.average_score | floatformat }}</p>
+            {% endif %}
+ 
+            {%endfor%}
+ 
+ 
+            {{form.media}}
+            <hr>
+            <form action="{%url 'review' pk=project.id%}" method="post" enctype="multipart/form-data" id="sema">
+              {%csrf_token%}
+              <table>
+                {{ form.as_table }}
+              </table>
+              <button type="submit">Vote</button>
+ 
+ 
+            </form>
+ 
+            {% block scripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 
+            {% bootstrap_javascript %}
+            {% endblock %}
+          </div>
+ 
+
+
     </div>
-  </div>
 </div>
 </div>
+
 {% endblock %}

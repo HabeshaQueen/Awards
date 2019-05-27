@@ -94,3 +94,26 @@ def new_project(request):
     else:
         form = UploadForm()
     return render(request, 'new_project.html', {"form": form})
+
+
+@login_required(login_url='/accounts/login/')
+def add_review(request,pk):
+   project = get_object_or_404(Project, pk=pk)
+   current_user = request.user
+   if request.method == 'POST':
+       form = ReviewForm(request.POST)
+       if form.is_valid():
+           design = form.cleaned_data['design']
+           usability = form.cleaned_data['usability']
+           content = form.cleaned_data['content']
+           review = form.save(commit=False)
+           review.project = project
+           review.juror = current_user
+           review.design = design
+           review.usability = usability
+           review.content = content
+           review.save()
+           return redirect('homePage')
+   else:
+       form = ReviewForm()
+       return render(request,'review.html',{"user":current_user,"form":form})
