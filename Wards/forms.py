@@ -4,10 +4,10 @@ from .models import *
 class UploadForm(forms.ModelForm):
     class Meta:
         model = Project
-        exclude = ['website'] 
+        fields = ('name','view','description','link') 
 
 
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = ['website'] 
+        exclude = ['user_id'] 

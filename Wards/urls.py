@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'profile/',views.profile_path, name='profile'),
     url(r'update/',views.update, name='update'),
     url(r'^search/', views.search_project, name='search_results'),
-    url(r'post_new/',views.post_new, name='post'),
+    url(r'^new/project$', views.new_project, name='new-project'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

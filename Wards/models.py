@@ -14,6 +14,7 @@ class Project(models.Model):
     description = models.TextField(max_length=500, blank=True)
     link = models.CharField(max_length=50, blank=True)
     date_posted = models.DateTimeField(auto_now=True)
+    editor = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 
     def __str__(self):
         return self.description
