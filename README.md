@@ -65,14 +65,12 @@ TDD
 $ python3.6 manage.py test.py main
 
 Contact Information
-Email-(watimakhanu@gmail.com)
+Email-(adhoadhigal@gmail.com)
 
-Github user name -Watibini
-
-License
+## License
 MIT License
 
-Copyright (c) [2019] [Adho Galgallo]
+## Copyright (c) [2019] [Adho Galgallo]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
