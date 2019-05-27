@@ -12,7 +12,7 @@
         {% if user.is_authenticated %}
         Hello <strong>{{user}}</strong>, take a look at today's top trending sites
         {% else %}
-        <a href="{% url 'login' %}">Login</a>
+        <a href="accounts/login">Login</a>
         {% endif %}
         <hr>
         <br>
