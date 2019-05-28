@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 import datetime as dt
 from django.dispatch import receiver
 from django.db.models.signals import post_save
-
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 class Project(models.Model):
@@ -35,7 +35,7 @@ class Profile(models.Model):
     profile_photo = models.ImageField(upload_to = 'profile/')
     user_id = models.OneToOneField(User, on_delete=models.CASCADE)
     contacts=models.CharField(max_length=50, blank=True)
-    website=models.CharField(max_length=50, blank=True)
+    Project=models.CharField(max_length=50, blank=True)
     bio = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
@@ -53,28 +53,12 @@ class Profile(models.Model):
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
 
-class Reviews(models.Model):
 
-    RATING_CHOICES = (
-    (1, '1'),
-    (2, '2'),
-    (3, '3'),
-    (4, '4'),
-    (5, '5'),
-    (6, '6'),
-    (7, '7'),
-    (8, '8'),
-    (9, '9'),
-    (10, '10'),
-    )
-    juror = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
-    project = models.ForeignKey(Project,on_delete=models.CASCADE, related_name='reviews',null=True)
-    design = models.IntegerField(choices=RATING_CHOICES,default=0)
-    usability = models.IntegerField(choices=RATING_CHOICES,default=0)
-    content = models.IntegerField(choices=RATING_CHOICES,default=0)
-    comment = models.CharField(max_length=200,null=True)
+class Votes(models.Model):
+    design=model.IntegerField(default=0,validators=[MaxValueValidator(20)]))
+    usability=models.IntegerField(default=0,validators=[MaxValueValidator(20)]))
+    content=models.IntegerField(default=0,validators=[MaxValueValidator(20)]))
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    project=models.IntegerField(default=0)
 
-    @classmethod
-    def get_reviews(cls):
-        reviews = Reviews.objects.all()
-        return reviews
+      

@@ -46,7 +46,7 @@
  
             {{form.media}}
             <hr>
-            <form action="{%url 'review' pk=project.id%}" method="post" enctype="multipart/form-data" id="sema">
+            <form action="" method="post" enctype="multipart/form-data" id="sema">
               {%csrf_token%}
               <table>
                 {{ form.as_table }}
