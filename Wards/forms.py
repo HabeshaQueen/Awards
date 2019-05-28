@@ -12,3 +12,13 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         exclude = ['user_id'] 
 
+class VoteForm(forms.ModelForm):
+    class Meta:
+        model = Vote
+        exclude=['user','project']
+
+
+
+
+
+        

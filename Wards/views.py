@@ -41,6 +41,24 @@ def profile_path(request):
 
 
 
+def single(request,single_id):
+    try:
+        index_path = Project.objects.filter(id = single_id)
+    except DoesNotExist:
+        raise Http404()
+    if request.method == 'POST':
+        form = UploadForm(request.POST,request.FILES)
+
+        if form.is_valid():
+            form.save()
+            return redirect('single')
+    else:
+        form =  VoteForm()
+
+    return render(request,"single.html", locals())
+
+
+
 
 def update(request):
     all_profile = Profile.objects.all()

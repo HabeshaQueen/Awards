@@ -54,10 +54,10 @@ class Profile(models.Model):
         instance.profile.save()
 
 
-class Votes(models.Model):
-    design=model.IntegerField(default=0,validators=[MaxValueValidator(20)]))
-    usability=models.IntegerField(default=0,validators=[MaxValueValidator(20)]))
-    content=models.IntegerField(default=0,validators=[MaxValueValidator(20)]))
+class Vote(models.Model):
+    design=models.IntegerField(default=0,validators=[MaxValueValidator(20)])
+    usability=models.IntegerField(default=0,validators=[MaxValueValidator(20)])
+    content=models.IntegerField(default=0,validators=[MaxValueValidator(20)])
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     project=models.IntegerField(default=0)
 
