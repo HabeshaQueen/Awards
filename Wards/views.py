@@ -113,6 +113,22 @@ def post_new(request):
 
     return render(request,'post_new.html',locals())
 
+
+
+def editprofile(request):
+
+    if request.method == 'POST':
+        form = UploadForm(request.FILES)
+    
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form =UploadForm()
+        
+    return render(request,'editprofile.html',locals())
+
+
 @login_required(login_url='/accounts/login/')
 def new_project(request):
     current_user = request.user
