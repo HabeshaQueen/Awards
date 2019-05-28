@@ -14,6 +14,8 @@ urlpatterns = [
     url(r'^review/(?P<pk>\d+)',views.add_review,name='review'),
     url(r'^all/(?P<pk>\d+)', views.all, name='all'),
     url(r'single/(\d+)',views.single,name ='single'),
+    url(r'^api/projects/$', views.ProjectList.as_view()),
+    url(r'^api/profile/$', views.ProfileList.as_view())
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

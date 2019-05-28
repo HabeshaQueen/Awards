@@ -5,6 +5,10 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import *
 from .forms import *
 from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import profileserializer,projectserializers
+
 
 
 # Create your views here.
@@ -148,3 +152,15 @@ def add_review(request,pk):
    else:
        form = ReviewForm()
        return render(request,'review.html',{"user":current_user,"form":form})
+
+class ProjectList(APIView):
+    def get(self, request, format=None):
+        all_projects = Project.objects.all()
+        serializers = projectserializers(all_projects, many=True)
+        return Response(serializers.data)
+
+class ProfileList(APIView):
+    def get(self, request, format=None):
+        all_profile = Profile.objects.all()
+        serializers = profileserializers(all_profile, many=True)
+        return Response(serializers.data)
