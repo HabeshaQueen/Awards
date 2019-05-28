@@ -37,8 +37,8 @@ This application allows users to review, vote and share computer application pro
 * Run the following command to install all your dependencies in your local computer;
 `$ pip install -r requirements.txt`
 
-* Project setup instruction/ installations
-* From the repository, click + in the global sidebar and select Clone this repository .
+## Project setup instruction/ installations
+* From the repository, click + in the global sidebar and select `Clone this repository` .
 
 * Copy the clone command.
 
@@ -49,9 +49,9 @@ or just use this
 `$ git clone `
 
 * Run this command to open the app
-$ python3.6 manage.py runserver
+`$ python3.6 manage.py runserver`
 
-BDD
+## BDD
 Behavior	Result
 user loads the page	all available projects that have been posted are displayed
 user clicks on an image of choice	A modol pops up and the image details together with the review made to that project
