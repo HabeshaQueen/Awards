@@ -1,9 +1,3 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -21,12 +15,12 @@
     <div class='container'>
       <div class="collapse navbar-collapse" id="navbarNav">
         <div id="main">
-          <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ menu</span>
+          <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ Menu</span>
         </div>
 
         <form class="form-inline" role="search" action="{% url 'search_results' %}">
 
-          <input class="form-control mr-sm-2 nav-item" style='padding-right:30px;width:120%' type="text" placeholder="Search Project.." aria-label="Search" name="project">
+          <input class="form-control mr-sm-2 nav-item" style='padding-right:30px;width:120%; margin-top:20px;' type="text" placeholder="Search Project.." aria-label="Search" name="project">
 
         </form>
         <br>
@@ -39,8 +33,7 @@
             <a href="{% url 'logout' %}">
               <h6>LOGOUT</h6>
             </a>
-            <a href="{% url 'new-project' %}"><button> Submit Your Site </button></a>
-            <!-- <a href="{% url 'profile' %}"><h6>{{user.username}}</h6></a> -->
+            <a href="{% url 'new-project' %}"><button class="btn btn-success"> Submit Your Site </button></a>
             {% else %}
             <a href="{% url 'login' %}">
               <h6>LOGIN</h6>
@@ -61,7 +54,7 @@
   <div id="mySidenav" class="sidenav fixed-top bg-aqua">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     <a href="{% url 'homePage' %}">Home</a>
-    <a href="{% url 'profile' %}">Profile</a>
+    <a href="profile/{{user.id}}/">Profile</a>
     <a href="{% url 'new-project' %}">Post Site</a>
     
   </div>
