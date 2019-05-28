@@ -38,7 +38,7 @@ This application allows users to review, vote and share computer application pro
 `$ pip install -r requirements.txt`
 
 ## Project setup instruction/ installations
-* From the repository, click + in the global sidebar and select `Clone this repository` .
+* From the repository, click + in the global sidebar and select `Clone this repository` 
 
 * Copy the clone command.
 

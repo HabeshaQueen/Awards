@@ -62,8 +62,6 @@ def single(request,single_id):
     return render(request,"single.html", locals())
 
 
-
-
 def update(request):
     all_profile = Profile.objects.all()
     profile = Profile.objects.get(user_id = request.user)
