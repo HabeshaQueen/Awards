@@ -49,10 +49,9 @@
             <form action="" method="post" enctype="multipart/form-data" id="sema">
               {%csrf_token%}
               <table>
-                {{ form.as_table }}
+            {%bootstrap_form form%}
               </table>
-              <button type="submit">Vote</button>
- 
+             
  
             </form>
  
