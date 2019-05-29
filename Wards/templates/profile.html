@@ -6,13 +6,16 @@
 <div class="container">
   <button id="button_h" type="button" class="btn btn-outline-secondary"><a href="/edit/">Edit Profile</a></button>
 
-
+  
   {% for all in profile%}
+  {%if all.profile_photo%}
   <img src="{{all.profile_photo.url}}" alt="" width="300" height="500">
   <h4 id="p_hhh">{{all.user_id}}</h4>
   <h4>{{all.contacts}}</h4>
   <h4>{{all.bio}}</h4>
+  {%endif%}
   {% endfor %}
+  
 
 </div>
 {%endblock%}

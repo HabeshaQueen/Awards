@@ -51,6 +51,7 @@ class Profile(models.Model):
         if created:
             Profile.objects.create(user_id=instance)
 
+    
 
 
 class Vote(models.Model):
