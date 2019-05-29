@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'single/(\d+)',views.single,name ='single'),
     url(r'^api/projects/$', views.ProjectList.as_view()),
     url(r'^api/profile/$', views.ProfileList.as_view())
+    
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

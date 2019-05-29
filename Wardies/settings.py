@@ -31,7 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+   
     'rest_framework',
+    'rest_framework.authtoken',
     'Wards',
     'bootstrap3',
     'bootstrap4',
@@ -132,3 +134,9 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 STATICFILES_DIRS = (
 	os.path.join(BASE_DIR, 'static'),
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
