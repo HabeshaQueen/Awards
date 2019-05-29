@@ -33,10 +33,12 @@ class Project(models.Model):
 
 class Profile(models.Model):
     profile_photo = models.ImageField(upload_to = 'profile/')
-    user_id = models.OneToOneField(User, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     contacts=models.CharField(max_length=50, blank=True)
-    Project=models.CharField(max_length=50, blank=True)
     bio = models.CharField(max_length=100, blank=True)
+
+    class Meta:
+        ordering=['-profile_photo']
 
     def __str__(self):
         return self.contacts

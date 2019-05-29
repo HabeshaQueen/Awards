@@ -39,9 +39,9 @@ def home_index(request):
 def profile_path(request,id_user):
     user=User.objects.get(id=id_user)
     images = Project.objects.all()
-    my_profile = Profile.objects.all()
+    my_profile = Profile.objects.filter(user_id=request.user)[0:1]
 
-    return render(request,'profile.html', locals())
+    return render(request,'profile.html',{'profile':my_profile})
 
 
 
@@ -118,13 +118,15 @@ def post_new(request):
 def editprofile(request):
 
     if request.method == 'POST':
-        form = UploadForm(request.FILES)
+        form = ProfileForm(request.POST,request.FILES)
     
         if form.is_valid():
-            form.save()
-            return redirect('profile')
+            profile=form.save(commit=False)
+            profile.user_id=request.user
+            profile.save()
+            return redirect('profile',request.user.id)
     else:
-        form =UploadForm()
+        form =ProfileForm()
         
     return render(request,'editprofile.html',locals())
 

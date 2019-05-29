@@ -11,7 +11,9 @@
 </head>
 
 <body>
-  <form method='post' action="{% url 'profile' user.pk%}">
+  <form enctype="multipart/form-data" action="/edit/" method="POST">
+
+    Profile
     {% csrf_token %}
     {%bootstrap_form form%}
 
