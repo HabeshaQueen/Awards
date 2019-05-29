@@ -44,7 +44,6 @@ def profile_path(request,id_user):
     return render(request,'profile.html',{'profile':my_profile})
 
 
-
 def single(request,single_id):
     try:
         index_path = Project.objects.filter(id = single_id)
