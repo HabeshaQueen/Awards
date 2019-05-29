@@ -51,9 +51,6 @@ class Profile(models.Model):
         if created:
             Profile.objects.create(user_id=instance)
 
-    @receiver(post_save, sender=User)
-    def save_user_profile(sender, instance, **kwargs):
-        instance.profile.save()
 
 
 class Vote(models.Model):
